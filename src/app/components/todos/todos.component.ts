@@ -7,32 +7,20 @@ import { Todo } from 'src/app/modules';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent {
-  todoList : Todo[] =[];
+  todoList : Todo[] = [];
   localItems :string | null;
-  colors: string[] = ['primary', 'success', 'danger', 'warning', 'info', 'secondary', 'purple', 'pink'];
 
   constructor(){
-    this.localItems =localStorage.getItem('notes');
+    this.localItems =localStorage.getItem('todoList');
     if(this.localItems == null){
       this.todoList =[]
     }
     else{
       this.todoList = JSON.parse(this.localItems);
     }
-
-    const todo:Todo = {
-      id:1,
-      task:'get eggs and also water the plants get eggs and also water the plants',
-      isActive:true,
-    }
-    // this.todoList.push(todo);
-    // this.todoList.push(todo);
-    // this.todoList.push(todo);
-    this.todoList.push(todo);
-
   }
 
-  getRandomColor(index:number):string{
+  getRandomColor():string{
     const colors = [
       'red', 'green', 'blue', 'yellow', 'orange', 'purple', 'pink', 'teal', 'maroon', 'navy',
       'lime', 'aqua', 'olive', 'silver', 'gray', 'indigo', 'brown', 'fuchsia', 'gold',
@@ -41,15 +29,22 @@ export class TodosComponent {
     const randomIndex = Math.floor(Math.random() * colors.length);
     return colors[randomIndex];
   }
-  
-  getRandomColor2(index:number):string{
-    const colors = [
-      'red', 'green', 'blue', 'orange', 'purple', 'pink', 'teal', 'maroon', 'navy',
-      'lime', 'aqua', 'olive', 'indigo', 'brown', 'fuchsia', 'gold','cyan', 'crimson', 'darkgreen', 'darkorange', 'darkred'  
-    ];
-    const randomIndex = Math.floor(Math.random() * colors.length);
-    return colors[randomIndex];
+
+  addNewTodo(todo:Todo){
+    todo.id = this.todoList.length + 1;
+    todo.color = this.getRandomColor();
+    this.todoList.push(todo);
+    localStorage.setItem("todoList", JSON.stringify(this.todoList));
   }
   
+  onCheckboxClick(todo:Todo){
+    todo.isActive = !todo.isActive;
+    localStorage.setItem("todoList", JSON.stringify(this.todoList));
+  }
 
+  deleteTodo(todo:Todo){
+    const indexOfItem= this.todoList.indexOf(todo);
+    this.todoList.splice(indexOfItem,1);
+    localStorage.setItem("todoList", JSON.stringify(this.todoList)); 
+  }
 }

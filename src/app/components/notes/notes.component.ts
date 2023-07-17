@@ -35,11 +35,12 @@ export class NotesComponent {
     this.notesList.push(newNote);
     this.notesList.push(newNote);
     this.notesList.push(newNote);
+    this.notesList.push(newNote);
+    this.notesList.push(newNote);
+    this.notesList.push(newNote);    
+    this.notesList.push(newNote);
+    this.notesList.push(newNote);
   }
-  // getRandomColor(index: number): string {
-  //   const randomIndex = Math.floor(Math.random() * this.colors.length);
-  //   return `border-${this.colors[randomIndex]}`;
-  // }
 
   getRandomColor(index:number):string{
     const colors = [
@@ -51,4 +52,9 @@ export class NotesComponent {
     return colors[randomIndex];
   }
   
+  deleteNote(note:Note){
+    const indexOfItem= this.notesList.indexOf(note);
+    this.notesList.splice(indexOfItem,1);
+    localStorage.setItem("notesList", JSON.stringify(this.notesList)); 
+  }
 }
