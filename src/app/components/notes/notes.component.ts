@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Note } from 'src/app/modules'
+import { AddNoteComponent } from './add-note/add-note.component';
 
 @Component({
   selector: 'app-notes',
@@ -9,7 +10,8 @@ import { Note } from 'src/app/modules'
 export class NotesComponent {
   notesList:Note[] = []
   localItems?:string | null;
-
+  
+  @ViewChild(AddNoteComponent) addNoteComponent?: AddNoteComponent;
 
   constructor(){
     this.localItems =localStorage.getItem('notesList');
@@ -19,6 +21,10 @@ export class NotesComponent {
     else{
       this.notesList = JSON.parse(this.localItems);
     }
+  }
+
+  addNoteFucntion(){
+    this.addNoteComponent?.decreaseAddNote()
   }
 
   getRandomColor():string{

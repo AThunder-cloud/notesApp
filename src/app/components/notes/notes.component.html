@@ -2,12 +2,12 @@
     <app-add-note (noteEmitter)="addNote($event)"></app-add-note>
 </div>
 <div *ngIf="notesList.length === 0; else elseBlock">
-    <div class="container-fluid">
-        <h1 class="fs-1 text-black-50 position-absolute top-50 start-50 translate-middle">No Notes</h1>
+    <div class="container-fluid d-flex justify-content-center align-content-start" (click)="addNoteFucntion()">
+        <h1 class="fs-1 text-black-50 ">No Notes</h1>
     </div>
 </div>
 <ng-template #elseBlock>
-<div class="container-fluid my-1">
+<div class="container-fluid my-1" (click)="addNoteFucntion()">
     <div class="container">
     <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
         <div class="col" *ngFor="let note of notesList; index as i;">

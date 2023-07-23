@@ -7,7 +7,7 @@
 <ng-template #elseBlock>
     <div class="container-fluid">
         <ul class="container list-group my-3" *ngFor="let todo of todoList; index as i">
-            <li class="list-group-item d-flex justify-content-between align-items-center pointer" [style.border-bottom]="'3px solid ' + todo.color " [ngClass]="{'strike': !todo.isActive,}">
+            <li class="list-group-item d-flex justify-content-between align-items-center pointer shadow" [style.border-bottom]="'3px solid ' + todo.color " [ngClass]="{'strike': !todo.isActive,}">
                 {{todo.task}}
                 <div>
                     <input class="form-check-input" type="checkbox" [style.margin]="'6px 3px 0px 0px'" (click)="onCheckboxClick(todo)" [checked]="!todo.isActive">
