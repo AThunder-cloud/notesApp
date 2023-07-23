@@ -1,8 +1,8 @@
 <div class="container">
 <form (ngSubmit)="onSubmit()">
     <div class="my-3">
-      <label for="task" class="form-label">Task</label>
-      <input type="text" class="form-control" name="task" [(ngModel)]="inputTask">
+      <label for="task" class="form-label fw-bold">Task</label>
+      <input type="text" class="form-control" name="task" [(ngModel)]="inputTask" placeholder="Write your Task here...">
     </div>
     <button type="submit" class="btn btn-outline-primary">Add Todo</button>
 </form>

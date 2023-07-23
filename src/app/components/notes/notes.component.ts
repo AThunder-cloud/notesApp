@@ -12,37 +12,16 @@ export class NotesComponent {
 
 
   constructor(){
-    this.localItems =localStorage.getItem('notes');
+    this.localItems =localStorage.getItem('notesList');
     if(this.localItems == null){
       this.notesList =[]
     }
     else{
       this.notesList = JSON.parse(this.localItems);
     }
-    const newNote:Note = {
-        id:1,
-        title:'Hello notes',
-        body:'This is a notes application',
-        date: new Date
-      }
-    this.notesList.push(newNote);
-    this.notesList.push(newNote);
-    this.notesList.push(newNote);
-    this.notesList.push(newNote);
-    this.notesList.push(newNote);
-    this.notesList.push(newNote);
-    this.notesList.push(newNote);
-    this.notesList.push(newNote);
-    this.notesList.push(newNote);
-    this.notesList.push(newNote);
-    this.notesList.push(newNote);
-    this.notesList.push(newNote);
-    this.notesList.push(newNote);    
-    this.notesList.push(newNote);
-    this.notesList.push(newNote);
   }
 
-  getRandomColor(index:number):string{
+  getRandomColor():string{
     const colors = [
       'red', 'green', 'blue', 'yellow', 'orange', 'purple', 'pink', 'teal', 'maroon', 'navy',
       'lime', 'aqua', 'olive', 'silver', 'gray', 'black', 'indigo', 'brown', 'fuchsia', 'gold',
@@ -52,6 +31,13 @@ export class NotesComponent {
     return colors[randomIndex];
   }
   
+  addNote(note:Note){
+    note.id = this.notesList.length + 1;
+    note.color = this.getRandomColor();
+    this.notesList.push(note);
+    localStorage.setItem("notesList", JSON.stringify(this.notesList));
+
+  }
   deleteNote(note:Note){
     const indexOfItem= this.notesList.indexOf(note);
     this.notesList.splice(indexOfItem,1);

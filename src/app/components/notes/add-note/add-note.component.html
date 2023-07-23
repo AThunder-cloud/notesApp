@@ -1,14 +1,30 @@
 <div class="container-fluid">
-    <div class="container my-3">
-        <form (ngSubmit)="onSubmit()">
-            <div class="mb-3">
-                <label for="noteTitle" class="form-label">Title</label>
-                <input type="text" class="form-control" placeholder="title...">
+    <div class="my-3 rounded-3 border border-secondary">
+        <form (ngSubmit)="onSubmit()" >
+            <div (blur)="decreaseAddNote()" tabindex="-1">
+            <div 
+             class="border border-warning"
+             [class.hiddenColapsed-state]="isHidden"
+             [class.visibleUncolapsed-state]="!isHidden"
+             >
+                <label for="noteTitle" class="form-label fw-bold">Title</label>
+                <input [(ngModel)]="inputNoteTitle" type="text" class="form-control" name="title" placeholder="title..." >
             </div>
-            <div class="mb-3">
-                <label for="noteBody" class="form-label">Note Body</label>
-                <textarea class="form-control vh-100" placeholder="Write your note here..."></textarea>
+            <div class="mb-3 note-div border border-success">
+                <label for="noteBody" class="form-label fw-bold">Note Body</label>
+                <textarea 
+                    [(ngModel)]="inputNoteBody" 
+                    class="form-control"
+                    [class.expanding-textarea]="isExpand"
+                    [class.colapsing-textarea]="!isExpand"
+                    name="body" 
+                    (focus)="increaseAddNote()"
+                    placeholder="Write your note here..." >
+                </textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Add note</button>
             </div>
         </form>
     </div>
 </div>
+

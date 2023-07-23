@@ -11,9 +11,11 @@ export class AddTodoComponent {
   inputTask?:string;
   
   @Output() todoEmitter:EventEmitter<Todo> = new EventEmitter();
+  
   onSubmit(){
-    if(this.inputTask === undefined){
+    if(!this.inputTask || !this.inputTask.trim()){
       alert("todo was empty");
+      this.inputTask = '';
     }else{
       const todo:Todo ={
         id:0,

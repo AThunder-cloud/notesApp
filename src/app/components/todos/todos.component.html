@@ -1,7 +1,7 @@
 <app-add-todo (todoEmitter)="addNewTodo($event)"></app-add-todo>
 <div *ngIf="todoList.length === 0; else elseBlock">
     <div class="container-fluid">
-        <h1 class="fs-1 text-black-50 position-absolute top-50 start-44">No Todos to show</h1>
+        <h1 class="fs-1 text-black-50 position-absolute top-50 start-50 translate-middle">No Todos to show</h1>
     </div>
 </div>
 <ng-template #elseBlock>

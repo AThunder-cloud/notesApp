@@ -3,6 +3,7 @@ export interface Note{
     title:string;
     body:string;
     date:Date;
+    color?:string;
 }
 
 export interface Todo{

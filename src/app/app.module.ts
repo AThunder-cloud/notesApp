@@ -18,8 +18,6 @@ import { AddNoteComponent } from './components/notes/add-note/add-note.component
     TodosComponent,
     AddTodoComponent,
     AddNoteComponent,
-
-
   ],
   imports: [
     BrowserModule,
