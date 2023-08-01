@@ -3,8 +3,9 @@
   }
 .card-hover:hover {
     z-index: +2;
-    transform: scale(1.1); /* Increase the size of the card on hover */
-    box-shadow: 5 2 10px rgb(4, 4, 4); /* Add a stronger shadow on hover */
+    transform: scale(1.15); 
+    box-shadow: 5 2 10px rgb(4, 4, 4);
+    background-color: rgb(245, 245, 245);
   }
   
 .border-6{

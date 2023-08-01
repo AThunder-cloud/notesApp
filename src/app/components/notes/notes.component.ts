@@ -30,8 +30,8 @@ export class NotesComponent {
   getRandomColor():string{
     const colors = [
       'red', 'green', 'blue', 'yellow', 'orange', 'purple', 'pink', 'teal', 'maroon', 'navy',
-      'lime', 'aqua', 'olive', 'silver', 'gray', 'black', 'indigo', 'brown', 'fuchsia', 'gold',
-      'cyan', 'crimson', 'darkgreen', 'darkorange', 'darkred'
+      'lime', 'olive', 'silver', 'gray', 'black', 'indigo', 'brown', 'fuchsia', 'gold',
+      'crimson', 'darkgreen', 'darkorange', 'darkred'
     ];
     const randomIndex = Math.floor(Math.random() * colors.length);
     return colors[randomIndex];

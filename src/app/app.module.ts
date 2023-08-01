@@ -8,6 +8,7 @@ import { NotesComponent } from './components/notes/notes.component';
 import { TodosComponent } from './components/todos/todos.component';
 import { AddTodoComponent } from './components/todos/add-todo/add-todo.component';
 import { AddNoteComponent } from './components/notes/add-note/add-note.component';
+import { ReadNoteComponent } from './components/notes/read-note/read-note.component';
 
 
 
@@ -18,6 +19,7 @@ import { AddNoteComponent } from './components/notes/add-note/add-note.component
     TodosComponent,
     AddTodoComponent,
     AddNoteComponent,
+    ReadNoteComponent,
   ],
   imports: [
     BrowserModule,
